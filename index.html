@@ -399,6 +399,17 @@
       box-shadow: 0 6px 16px rgba(124, 111, 255, 0.3);
     }
 
+    /* Градиент для названий бонусов */
+    .bonus-title {
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--primary-light), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      margin-bottom: 6px;
+    }
+
     /* CTA Section */
     .cta {
       padding: 150px 0;
@@ -455,6 +466,7 @@
       letter-spacing: -0.5px;
       font-family: 'Inter', sans-serif;
       border: none;
+      cursor: pointer;
     }
 
     .btn::before {
@@ -540,6 +552,130 @@
     .bonuses .animate { animation-delay: 0.8s; }
     .cta .animate { animation-delay: 1s; }
 
+    /* Модальное окно */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal {
+      background: var(--bg-card);
+      padding: 50px 60px;
+      border-radius: var(--border-radius);
+      max-width: 500px;
+      width: 90%;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      border: 1px solid rgba(124, 111, 255, 0.2);
+    }
+
+    .modal h3 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: center;
+      color: white;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(124, 111, 255, 0.3);
+      border-radius: 10px;
+      color: var(--text);
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(124, 111, 255, 0.2);
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 30px 0 20px;
+    }
+
+    .checkbox-group input {
+      width: auto;
+      margin-top: 3px;
+    }
+
+    .checkbox-group label {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    .checkbox-group a {
+      color: var(--primary);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 18px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 70px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(124, 111, 255, 0.3);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: var(--text-light);
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: 0.3s;
+    }
+
+    .modal-close:hover {
+      opacity: 1;
+      color: white;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       header h1 { font-size: 3rem; }
@@ -577,7 +713,7 @@
     <div class="container">
       <h2 class="animate">Как выступать уверенно, даже если вы никогда не говорили перед людьми?</h2>
       <p class="animate">
-        Простая, что даже дурак справится — система упражнений, которая сэкономит часы потраченного впустую времени, пока вы гуглили «Как выступать?»
+        Простая — и даже дурак справится — система упражнений, которая сэкономит часы, потраченные впустую на поиск в Google: «Как выступать?»
       </p>
 
       <div class="highlight-box animate">
@@ -587,19 +723,19 @@
       <ul class="benefit-list animate">
         <li class="benefit-item">
           <div class="icon-check"><i class="fas fa-rocket"></i></div>
-          <p>Доступ к курсу в TG Боте <strong>[7 дней бесплатно]</strong> — <a href="https://web.telegram.org/a/#7717231483" target="_blank">попробуйте прямо сейчас</a></p>
+          <p>Доступ к курсу в TG-боте <strong>[7 дней бесплатно]</strong> — <a href="https://web.telegram.org/a/#7717231483" target="_blank">попробуйте прямо сейчас</a></p>
         </li>
         <li class="benefit-item">
           <div class="icon-check"><i class="fas fa-brain"></i></div>
-          <p><strong>Методика запоминания текста</strong> — вы перестанете его зубрить</p>
+          <p><strong>Методика запоминания текста</strong> — вы перестанете зубрить</p>
         </li>
         <li class="benefit-item">
           <div class="icon-check"><i class="fas fa-feather-alt"></i></div>
-          <p><strong>Пошаговая инструкция уменьшения страха</strong> — «Прогони Страх»</p>
+          <p><strong>Пошаговая инструкция по уменьшению страха</strong> — «Прогони страх»</p>
         </li>
         <li class="benefit-item">
           <div class="icon-check"><i class="fas fa-user-friends"></i></div>
-          <p><strong>Координация по выступлениям 1 на 1</strong></p>
+          <p><strong>Координация выступлений 1 на 1</strong></p>
         </li>
       </ul>
     </div>
@@ -611,32 +747,50 @@
       <p class="bonus-total animate">Общая стоимость бонусов: <s>17 140 ₽</s> → <strong>всего за 8990 ₽!</strong></p>
 
       <div class="bonus-item animate">
-        <span>Подробное руководство по подготовке к любому выступлению. Как убедиться, что всё идёт по плану.</span>
+        <div>
+          <span class="bonus-title">«Готовая сцена: полный чек-лист выступления»</span>
+          <div>Подробное руководство по подготовке к любому выступлению: как убедиться, что всё идёт по плану.</div>
+        </div>
         <span class="bonus-price">2490 ₽</span>
       </div>
 
       <div class="bonus-item animate">
-        <span>Руководство: «Как записывать на камеру легко». Настолько лёгкий план, что сложнее не начать, чем начать.</span>
+        <div>
+          <span class="bonus-title">«Камера, мотор! Как записывать на камеру легко»</span>
+          <div>Настолько простой план, что сложнее не начать — чем начать.</div>
+        </div>
         <span class="bonus-price">1590 ₽</span>
       </div>
 
       <div class="bonus-item animate">
-        <span>Доступ к веб-ресурсу для повышения навыка «Формулировки мыслей»</span>
+        <div>
+          <span class="bonus-title">«Формулировки мыслей» — веб-ресурс</span>
+          <div>Доступ к веб-ресурсу для повышения навыка чёткой и ясной передачи идей.</div>
+        </div>
         <span class="bonus-price">2590 ₽</span>
       </div>
 
       <div class="bonus-item animate">
-        <span>Ресурс с минутными упражнениями для практики в перерывах. Разработано для тех, у кого очень мало времени.</span>
+        <div>
+          <span class="bonus-title">«Минутная практика» — упражнения в перерывах</span>
+          <div>Ресурс с минутными упражнениями для практики — разработан для тех, у кого очень мало времени.</div>
+        </div>
         <span class="bonus-price">4590 ₽</span>
       </div>
 
       <div class="bonus-item animate">
-        <span>Инструкция «Как составить текст к выступлению?» — пошаговая схема, с которой справится даже ребёнок.</span>
+        <div>
+          <span class="bonus-title">«Как составить текст к выступлению?» — пошаговая схема</span>
+          <div>Простая инструкция, с которой справится даже ребёнок.</div>
+        </div>
         <span class="bonus-price">2990 ₽</span>
       </div>
 
       <div class="bonus-item animate">
-        <span>Доступ к «Генератору тем» для ежедневной практики</span>
+        <div>
+          <span class="bonus-title">«Генератор тем» для ежедневной практики</span>
+          <div>Доступ к инструменту, который поможет не сидеть без идей — каждый день новая тема для тренировки.</div>
+        </div>
         <span class="bonus-price">2490 ₽</span>
       </div>
     </div>
@@ -649,10 +803,10 @@
         Только участники программы «СПИЧ СТАРТ» получают доступ к бонусам, которые никогда не продаются отдельно.
       </p>
 
-      <a href="https://osinec.github.io/videlittekst/" class="btn">Получить доступ сейчас</a>
+      <button class="btn" id="openModal">Получить доступ сейчас</button>
 
       <p class="guarantee">
-        Если через 30 дней вы не увидите разницы — вернём деньги <strong>или</strong> будем работать бесплатно, пока вы не достигнете результата.
+        Если через 30 дней вы не увидите разницы — вернём деньги <strong>или</strong> продолжим работать бесплатно, пока вы не достигнете результата.
       </p>
       <p class="limit">
         🔒 Доступ только для <strong id="spots">15</strong> новых пользователей каждый месяц
@@ -666,6 +820,39 @@
       <p><a href="https://osinec.github.io/videlittekst/">Политика конфиденциальности</a></p>
     </div>
   </footer>
+
+  <!-- Модальное окно -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-close" id="closeModal">&times;</div>
+      <h3>Получите доступ к СПИЧ СТАРТ</h3>
+      <form id="leadForm" action="#" method="POST">
+        <div class="form-group">
+          <label for="name">Ваше имя</label>
+          <input type="text" id="name" name="name" placeholder="Анна" required />
+        </div>
+
+        <div class="form-group">
+          <label for="telegram">Ник в Telegram</label>
+          <input type="text" id="telegram" name="telegram" placeholder="@anna" required />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Номер телефона</label>
+          <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67" required />
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="agreement" name="agreement" required />
+          <label for="agreement">
+            Я даю согласие на обработку персональных данных и принимаю условия <a href="offer.html" target="_blank">оферты</a>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-submit">Получить доступ</button>
+      </form>
+    </div>
+  </div>
 
   <script>
     // Генерация частиц
@@ -706,6 +893,26 @@
         clearInterval(interval);
       }
     }, 4000);
+
+    // Модальное окно
+    const modal = document.getElementById('modalOverlay');
+    const openBtn = document.getElementById('openModal');
+    const closeBtn = document.getElementById('closeModal');
+
+    openBtn.onclick = () => modal.style.display = 'flex';
+    closeBtn.onclick = () => modal.style.display = 'none';
+    window.onclick = (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
+
+    // Обработка формы (заглушка — вы можете добавить отправку)
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Спасибо! Данные отправлены. Доступ будет выслан в Telegram.');
+      modal.style.display = 'none';
+    });
   </script>
 
 </body>
