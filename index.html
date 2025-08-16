@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>СПИЧ СТАРТ — Научитесь выступать с нуля</title>
+  <meta name="description" content="4-недельная программа подготовки к выступлениям. Без страха, без зубрёжки. Работает даже для новичков." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg: #0f0f1a;
+      --bg-secondary: #161625;
+      --bg-card: #1e1e32;
+      --text: #e0e0ff;
+      --text-light: #a0a0c5;
+      --primary: #7c6fff;
+      --primary-light: #9d8cff;
+      --primary-dark: #5d4fdf;
+      --accent: #d946ef;
+      --accent-light: #e879f9;
+      --success: #10b981;
+      --border-radius: 20px;
+      --shadow: 0 15px 35px rgba(0, 0, 30, 0.25);
+      --shadow-lg: 0 25px 50px rgba(0, 0, 30, 0.3);
+      --transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --transition-fast: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.2;
+      font-weight: 800;
+      color: white;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* Фон с тёмными частицами */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .particle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: rgba(157, 140, 255, 0.2);
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: float 10s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+      50% { transform: translateY(-15px) rotate(180deg); opacity: 0.2; }
+    }
+
+    /* Видеофон — сцена с подсветкой */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    /* Градиентный оверлей */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 25% 50%, rgba(124, 111, 255, 0.15), transparent 40%),
+                  radial-gradient(circle at 75% 80%, rgba(217, 70, 239, 0.1), transparent 40%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Header */
+    header {
+      padding: 90px 0 70px;
+      text-align: center;
+      position: relative;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--primary-light), transparent);
+    }
+
+    header h1 {
+      font-size: 4.2rem;
+      background: linear-gradient(90deg, var(--primary-light), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+      position: relative;
+    }
+
+    header h1::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      border-radius: 3px;
+    }
+
+    header p {
+      font-size: 1.45rem;
+      color: var(--text-light);
+      max-width: 850px;
+      margin: 0 auto;
+      font-weight: 500;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 110px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h2 {
+      font-size: 3.2rem;
+      background: linear-gradient(to right, white, var(--text-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 35px;
+      max-width: 950px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero p {
+      font-size: 1.35rem;
+      color: var(--text-light);
+      max-width: 880px;
+      margin: 0 auto 55px;
+    }
+
+    /* Анимированные орбы (тёмные, с неоном) */
+    .floating-orb {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      filter: blur(30px);
+      opacity: 0.25;
+      z-index: -1;
+      animation: pulse 7s infinite alternate;
+    }
+
+    .floating-orb:nth-child(1) {
+      top: 15%;
+      right: 5%;
+      background: radial-gradient(circle, var(--primary), transparent 70%);
+    }
+
+    .floating-orb:nth-child(2) {
+      bottom: 25%;
+      left: 5%;
+      background: radial-gradient(circle, var(--accent), transparent 70%);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.2; }
+      100% { transform: scale(1.15); opacity: 0.35; }
+    }
+
+    /* Выделенный блок */
+    .highlight-box {
+      background: rgba(30, 30, 50, 0.6);
+      backdrop-filter: blur(12px);
+      padding: 36px 45px;
+      border-radius: var(--border-radius);
+      border: 1px solid rgba(124, 111, 255, 0.2);
+      margin: 60px auto;
+      max-width: 980px;
+      box-shadow: 0 10px 30px rgba(0, 0, 30, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .highlight-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary), var(--accent));
+      border-radius: 4px;
+    }
+
+    .highlight-box p {
+      font-style: italic;
+      color: var(--text-light);
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    /* Benefits */
+    .benefits {
+      padding: 110px 0;
+      background: var(--bg-secondary);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 3rem;
+      background: linear-gradient(to right, white, var(--text-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 70px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 110px;
+      height: 6px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      margin: 25px auto 0;
+      border-radius: 3px;
+    }
+
+    .benefit-list {
+      list-style: none;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .benefit-item {
+      margin-bottom: 28px;
+      padding: 30px 36px;
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: flex-start;
+      transition: var(--transition);
+      border: 1px solid rgba(124, 111, 255, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: var(--primary);
+      transition: var(--transition-fast);
+    }
+
+    .benefit-item:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-light);
+    }
+
+    .benefit-item:hover::before {
+      width: 10px;
+      background: var(--accent);
+    }
+
+    .icon-check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border-radius: 50%;
+      margin-right: 26px;
+      flex-shrink: 0;
+      font-size: 1.2rem;
+      box-shadow: 0 8px 20px rgba(124, 111, 255, 0.3);
+    }
+
+    .benefit-item p {
+      margin: 0;
+      font-size: 1.25rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .benefit-item a {
+      color: var(--primary-light);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .benefit-item a:hover {
+      color: var(--accent-light);
+      text-decoration: underline;
+    }
+
+    /* Bonuses */
+    .bonuses {
+      padding: 110px 0;
+      background: var(--bg);
+    }
+
+    .bonus-total {
+      text-align: center;
+      font-size: 1.9rem;
+      color: var(--accent-light);
+      font-weight: 800;
+      margin: 35px 0 60px;
+    }
+
+    .bonus-total s {
+      opacity: 0.5;
+    }
+
+    .bonus-item {
+      background: rgba(30, 30, 50, 0.5);
+      backdrop-filter: blur(8px);
+      padding: 26px 34px;
+      margin-bottom: 18px;
+      border-radius: var(--border-radius);
+      border-left: 9px solid var(--primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.25rem;
+      transition: var(--transition-fast);
+      box-shadow: 0 8px 20px rgba(0, 0, 30, 0.2);
+    }
+
+    .bonus-item:hover {
+      background: rgba(40, 40, 65, 0.6);
+      transform: translateX(8px);
+      border-left-color: var(--accent);
+    }
+
+    .bonus-price {
+      background: linear-gradient(to right, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 10px 20px;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      min-width: 140px;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(124, 111, 255, 0.3);
+    }
+
+    /* CTA Section */
+    .cta {
+      padding: 150px 0;
+      text-align: center;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16123a 50%, #1a1135 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.15;
+    }
+
+    .cta h2 {
+      font-size: 3.4rem;
+      background: linear-gradient(to right, white, var(--text-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 30px;
+      max-width: 950px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta p {
+      font-size: 1.4rem;
+      max-width: 800px;
+      margin: 0 auto 45px;
+      opacity: 0.9;
+      color: var(--text-light);
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--primary-light), var(--accent));
+      color: white;
+      padding: 24px 56px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 70px;
+      box-shadow: 0 12px 35px rgba(124, 111, 255, 0.4);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      letter-spacing: -0.5px;
+      font-family: 'Inter', sans-serif;
+      border: none;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: 0.6s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-8px) scale(1.1);
+      box-shadow: 0 22px 55px rgba(124, 111, 255, 0.5);
+    }
+
+    .guarantee {
+      margin-top: 45px;
+      font-size: 1.2rem;
+      opacity: 0.85;
+      font-style: italic;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: var(--text-light);
+    }
+
+    .limit {
+      font-size: 1.2rem;
+      color: #fbbf24;
+      margin-top: 20px;
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 60px 0;
+      color: var(--text-light);
+      font-size: 1.05rem;
+      background: var(--bg-secondary);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    footer a {
+      color: var(--primary-light);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      color: var(--accent-light);
+      text-decoration: underline;
+    }
+
+    /* Анимации */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    .hero .animate { animation-delay: 0.4s; }
+    .benefits .animate { animation-delay: 0.6s; }
+    .bonuses .animate { animation-delay: 0.8s; }
+    .cta .animate { animation-delay: 1s; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 { font-size: 3rem; }
+      .hero h2 { font-size: 2.5rem; }
+      .section-title { font-size: 2.3rem; }
+      .cta h2 { font-size: 2.5rem; }
+      .btn { font-size: 1.3rem; padding: 20px 44px; }
+      .bonus-item { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .bonus-price { align-self: flex-end; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Фоновые частицы -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Видеофон (сцена) -->
+  <video autoplay muted loop class="video-bg">
+    <source src="https://cdn.pixabay.com/video/2023/04/14/158556-807615413_tiny.mp4" type="video/mp4">
+  </video>
+
+  <!-- Плавающие неоновые орбы -->
+  <div class="floating-orb"></div>
+  <div class="floating-orb"></div>
+
+  <header>
+    <div class="container">
+      <h1>СПИЧ СТАРТ</h1>
+      <p>4-недельная программа подготовки к выступлениям для тех, кто ни разу не был на сцене</p>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2 class="animate">Как выступать уверенно, даже если вы никогда не говорили перед людьми?</h2>
+      <p class="animate">
+        Простая, что даже дурак справится — система упражнений, которая сэкономит часы потраченного впустую времени, пока вы гуглили «Как выступать?»
+      </p>
+
+      <div class="highlight-box animate">
+        <p>Что вы получаете:</p>
+      </div>
+
+      <ul class="benefit-list animate">
+        <li class="benefit-item">
+          <div class="icon-check"><i class="fas fa-rocket"></i></div>
+          <p>Доступ к курсу в TG Боте <strong>[7 дней бесплатно]</strong> — <a href="https://web.telegram.org/a/#7717231483" target="_blank">попробуйте прямо сейчас</a></p>
+        </li>
+        <li class="benefit-item">
+          <div class="icon-check"><i class="fas fa-brain"></i></div>
+          <p><strong>Методика запоминания текста</strong> — вы перестанете его зубрить</p>
+        </li>
+        <li class="benefit-item">
+          <div class="icon-check"><i class="fas fa-feather-alt"></i></div>
+          <p><strong>Пошаговая инструкция уменьшения страха</strong> — «Прогони Страх»</p>
+        </li>
+        <li class="benefit-item">
+          <div class="icon-check"><i class="fas fa-user-friends"></i></div>
+          <p><strong>Координация по выступлениям 1 на 1</strong></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bonuses">
+    <div class="container">
+      <h2 class="section-title animate">Эксклюзивные бонусы — только для участников</h2>
+      <p class="bonus-total animate">Общая стоимость бонусов: <s>17 140 ₽</s> → <strong>всего за 8990 ₽!</strong></p>
+
+      <div class="bonus-item animate">
+        <span>Подробное руководство по подготовке к любому выступлению. Как убедиться, что всё идёт по плану.</span>
+        <span class="bonus-price">2490 ₽</span>
+      </div>
+
+      <div class="bonus-item animate">
+        <span>Руководство: «Как записывать на камеру легко». Настолько лёгкий план, что сложнее не начать, чем начать.</span>
+        <span class="bonus-price">1590 ₽</span>
+      </div>
+
+      <div class="bonus-item animate">
+        <span>Доступ к веб-ресурсу для повышения навыка «Формулировки мыслей»</span>
+        <span class="bonus-price">2590 ₽</span>
+      </div>
+
+      <div class="bonus-item animate">
+        <span>Ресурс с минутными упражнениями для практики в перерывах. Разработано для тех, у кого очень мало времени.</span>
+        <span class="bonus-price">4590 ₽</span>
+      </div>
+
+      <div class="bonus-item animate">
+        <span>Инструкция «Как составить текст к выступлению?» — пошаговая схема, с которой справится даже ребёнок.</span>
+        <span class="bonus-price">2990 ₽</span>
+      </div>
+
+      <div class="bonus-item animate">
+        <span>Доступ к «Генератору тем» для ежедневной практики</span>
+        <span class="bonus-price">2490 ₽</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container animate">
+      <h2>Начните выступать уже через неделю</h2>
+      <p>
+        Только участники программы «СПИЧ СТАРТ» получают доступ к бонусам, которые никогда не продаются отдельно.
+      </p>
+
+      <a href="https://osinec.github.io/videlittekst/" class="btn">Получить доступ сейчас</a>
+
+      <p class="guarantee">
+        Если через 30 дней вы не увидите разницы — вернём деньги <strong>или</strong> будем работать бесплатно, пока вы не достигнете результата.
+      </p>
+      <p class="limit">
+        🔒 Доступ только для <strong id="spots">15</strong> новых пользователей каждый месяц
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 СПИЧ СТАРТ. Все права защищены.</p>
+      <p><a href="https://osinec.github.io/videlittekst/">Политика конфиденциальности</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Генерация частиц
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 40; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.top = Math.random() * 100 + 'vh';
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.animationDelay = Math.random() * 10 + 's';
+      particlesContainer.appendChild(particle);
+    }
+
+    // Анимация появления
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate').forEach(el => {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(50px)';
+      observer.observe(el);
+    });
+
+    // Счётчик мест
+    const spots = document.getElementById('spots');
+    let count = 15;
+    const interval = setInterval(() => {
+      count--;
+      spots.textContent = count;
+      if (count <= 0) {
+        spots.textContent = "Закончились";
+        clearInterval(interval);
+      }
+    }, 4000);
+  </script>
+
+</body>
+</html>
