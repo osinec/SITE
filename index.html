@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>СПИЧ СТАРТ — Научитесь выступать с нуля</title>
   <meta name="description" content="4-недельная программа подготовки к выступлениям. Без страха, без зубрёжки. Работает даже для новичков." />
 
@@ -56,7 +56,7 @@
     .container {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 0 40px;
+      padding: 0 20px;
     }
 
     /* Фон с тёмными частицами */
@@ -113,46 +113,23 @@
 
     /* Header */
     header {
-      padding: 90px 0 70px;
+      padding: 60px 0 40px;
       text-align: center;
       position: relative;
     }
 
-    header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--primary-light), transparent);
-    }
-
     header h1 {
-      font-size: 4.2rem;
+      font-size: 3rem;
       background: linear-gradient(90deg, var(--primary-light), var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 20px;
-      letter-spacing: -1px;
-      position: relative;
-    }
-
-    header h1::after {
-      content: '';
-      position: absolute;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70px;
-      height: 5px;
-      background: linear-gradient(to right, var(--primary), var(--accent));
-      border-radius: 3px;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
     }
 
     header p {
-      font-size: 1.45rem;
+      font-size: 1.2rem;
       color: var(--text-light);
       max-width: 850px;
       margin: 0 auto;
@@ -161,31 +138,31 @@
 
     /* Hero Section */
     .hero {
-      padding: 110px 0;
+      padding: 80px 0;
       text-align: center;
       position: relative;
     }
 
     .hero h2 {
-      font-size: 3.2rem;
+      font-size: 2.4rem;
       background: linear-gradient(to right, white, var(--text-light));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 35px;
+      margin-bottom: 24px;
       max-width: 950px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .hero p {
-      font-size: 1.35rem;
+      font-size: 1.15rem;
       color: var(--text-light);
       max-width: 880px;
-      margin: 0 auto 55px;
+      margin: 0 auto 40px;
     }
 
-    /* Анимированные орбы (тёмные, с неоном) */
+    /* Анимированные орбы */
     .floating-orb {
       position: absolute;
       width: 200px;
@@ -217,10 +194,10 @@
     .highlight-box {
       background: rgba(30, 30, 50, 0.6);
       backdrop-filter: blur(12px);
-      padding: 36px 45px;
+      padding: 28px 32px;
       border-radius: var(--border-radius);
       border: 1px solid rgba(124, 111, 255, 0.2);
-      margin: 60px auto;
+      margin: 40px auto;
       max-width: 980px;
       box-shadow: 0 10px 30px rgba(0, 0, 30, 0.3);
       position: relative;
@@ -242,35 +219,24 @@
       font-style: italic;
       color: var(--text-light);
       margin: 0;
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 500;
     }
 
     /* Benefits */
     .benefits {
-      padding: 110px 0;
+      padding: 80px 0;
       background: var(--bg-secondary);
     }
 
     .section-title {
       text-align: center;
-      font-size: 3rem;
+      font-size: 2.4rem;
       background: linear-gradient(to right, white, var(--text-light));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 70px;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 110px;
-      height: 6px;
-      background: linear-gradient(to right, var(--primary), var(--accent));
-      margin: 25px auto 0;
-      border-radius: 3px;
+      margin-bottom: 50px;
     }
 
     .benefit-list {
@@ -280,8 +246,8 @@
     }
 
     .benefit-item {
-      margin-bottom: 28px;
-      padding: 30px 36px;
+      margin-bottom: 20px;
+      padding: 24px 28px;
       background: var(--bg-card);
       border-radius: var(--border-radius);
       box-shadow: var(--shadow);
@@ -304,12 +270,6 @@
       transition: var(--transition-fast);
     }
 
-    .benefit-item:hover {
-      transform: translateY(-7px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--primary-light);
-    }
-
     .benefit-item:hover::before {
       width: 10px;
       background: var(--accent);
@@ -319,20 +279,19 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
       border-radius: 50%;
-      margin-right: 26px;
+      margin-right: 18px;
       flex-shrink: 0;
-      font-size: 1.2rem;
-      box-shadow: 0 8px 20px rgba(124, 111, 255, 0.3);
+      font-size: 1rem;
     }
 
     .benefit-item p {
       margin: 0;
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       color: var(--text);
       font-weight: 500;
     }
@@ -343,109 +302,115 @@
       text-decoration: none;
     }
 
-    .benefit-item a:hover {
-      color: var(--accent-light);
-      text-decoration: underline;
-    }
-
     /* Bonuses */
     .bonuses {
-      padding: 110px 0;
+      padding: 80px 0;
       background: var(--bg);
     }
 
-    .bonus-total {
-      text-align: center;
-      font-size: 1.9rem;
-      color: var(--accent-light);
-      font-weight: 800;
-      margin: 35px 0 60px;
-    }
-
-    .bonus-total s {
-      opacity: 0.5;
+    .bonuses .section-title {
+      margin-bottom: 40px;
     }
 
     .bonus-item {
       background: rgba(30, 30, 50, 0.5);
       backdrop-filter: blur(8px);
-      padding: 26px 34px;
-      margin-bottom: 18px;
+      padding: 20px;
+      margin-bottom: 16px;
       border-radius: var(--border-radius);
-      border-left: 9px solid var(--primary);
+      border-left: 6px solid var(--primary);
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1.25rem;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 1.1rem;
       transition: var(--transition-fast);
       box-shadow: 0 8px 20px rgba(0, 0, 30, 0.2);
     }
 
     .bonus-item:hover {
-      background: rgba(40, 40, 65, 0.6);
-      transform: translateX(8px);
+      transform: translateY(-4px);
       border-left-color: var(--accent);
     }
 
     .bonus-price {
       background: linear-gradient(to right, var(--primary), var(--primary-dark));
       color: white;
-      padding: 10px 20px;
-      border-radius: 16px;
+      padding: 8px 16px;
+      border-radius: 12px;
       font-weight: 700;
-      font-size: 1.25rem;
-      min-width: 140px;
-      text-align: center;
+      font-size: 1.1rem;
+      align-self: flex-start;
       box-shadow: 0 6px 16px rgba(124, 111, 255, 0.3);
     }
 
-    /* Градиент для названий бонусов */
-    .bonus-title {
-      font-weight: 700;
+    /* Красивая стоимость под бонусами */
+    .bonus-total {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin: 50px auto 0;
+      max-width: 980px;
+      padding: 24px;
+      background: rgba(30, 30, 50, 0.6);
+      backdrop-filter: blur(10px);
+      border-radius: var(--border-radius);
+      border: 1px solid rgba(124, 111, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 30, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bonus-total::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary), var(--accent));
+      border-radius: 3px;
+    }
+
+    .bonus-total s {
+      color: var(--text-light);
+      opacity: 0.7;
+    }
+
+    .bonus-total strong {
+      font-size: 2rem;
       background: linear-gradient(90deg, var(--primary-light), var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      display: block;
-      margin-bottom: 6px;
+      display: inline-block;
+      margin-left: 10px;
     }
 
     /* CTA Section */
     .cta {
-      padding: 150px 0;
+      padding: 100px 0;
       text-align: center;
       background: linear-gradient(135deg, #1a1a2e 0%, #16123a 50%, #1a1135 100%);
       position: relative;
       overflow: hidden;
     }
 
-    .cta::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url("image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      opacity: 0.15;
-    }
-
     .cta h2 {
-      font-size: 3.4rem;
+      font-size: 2.4rem;
       background: linear-gradient(to right, white, var(--text-light));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       max-width: 950px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .cta p {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       max-width: 800px;
-      margin: 0 auto 45px;
+      margin: 0 auto 30px;
       opacity: 0.9;
       color: var(--text-light);
     }
@@ -454,8 +419,8 @@
       display: inline-block;
       background: linear-gradient(90deg, var(--primary-light), var(--accent));
       color: white;
-      padding: 24px 56px;
-      font-size: 1.5rem;
+      padding: 20px 40px;
+      font-size: 1.4rem;
       font-weight: 700;
       text-decoration: none;
       border-radius: 70px;
@@ -485,13 +450,13 @@
     }
 
     .btn:hover {
-      transform: translateY(-8px) scale(1.1);
-      box-shadow: 0 22px 55px rgba(124, 111, 255, 0.5);
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 20px 50px rgba(124, 111, 255, 0.5);
     }
 
     .guarantee {
-      margin-top: 45px;
-      font-size: 1.2rem;
+      margin-top: 30px;
+      font-size: 1.1rem;
       opacity: 0.85;
       font-style: italic;
       max-width: 800px;
@@ -501,9 +466,9 @@
     }
 
     .limit {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #fbbf24;
-      margin-top: 20px;
+      margin-top: 16px;
       font-weight: 600;
       text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
     }
@@ -511,22 +476,123 @@
     /* Footer */
     footer {
       text-align: center;
-      padding: 60px 0;
+      padding: 40px 0;
       color: var(--text-light);
-      font-size: 1.05rem;
+      font-size: 0.95rem;
       background: var(--bg-secondary);
       border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    footer a {
-      color: var(--primary-light);
-      text-decoration: none;
+    /* Модальное окно */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    .modal {
+      background: var(--bg-card);
+      padding: 30px 20px;
+      border-radius: var(--border-radius);
+      max-width: 480px;
+      width: 90%;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      border: 1px solid rgba(124, 111, 255, 0.2);
+    }
+
+    .modal h3 {
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+      text-align: center;
+      color: white;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(124, 111, 255, 0.3);
+      border-radius: 10px;
+      color: var(--text);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(124, 111, 255, 0.2);
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 24px 0 16px;
+    }
+
+    .checkbox-group label {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .checkbox-group a {
+      color: var(--primary);
+      text-decoration: underline;
       font-weight: 500;
     }
 
-    footer a:hover {
-      color: var(--accent-light);
-      text-decoration: underline;
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 70px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(124, 111, 255, 0.3);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      color: var(--text-light);
+      font-size: 1.8rem;
+      cursor: pointer;
+      opacity: 0.7;
+    }
+
+    .modal-close:hover {
+      opacity: 1;
     }
 
     /* Анимации */
@@ -547,144 +613,27 @@
       animation: fadeInUp 1s forwards;
     }
 
-    .hero .animate { animation-delay: 0.4s; }
-    .benefits .animate { animation-delay: 0.6s; }
-    .bonuses .animate { animation-delay: 0.8s; }
-    .cta .animate { animation-delay: 1s; }
-
-    /* Модальное окно */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 0.4s ease-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .modal {
-      background: var(--bg-card);
-      padding: 50px 60px;
-      border-radius: var(--border-radius);
-      max-width: 500px;
-      width: 90%;
-      box-shadow: var(--shadow-lg);
-      position: relative;
-      border: 1px solid rgba(124, 111, 255, 0.2);
-    }
-
-    .modal h3 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-      text-align: center;
-      color: white;
-    }
-
-    .form-group {
-      margin-bottom: 24px;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--text-light);
-      font-size: 1.1rem;
-    }
-
-    .form-group input {
-      width: 100%;
-      padding: 14px 16px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(124, 111, 255, 0.3);
-      border-radius: 10px;
-      color: var(--text);
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-    }
-
-    .form-group input:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(124, 111, 255, 0.2);
-    }
-
-    .checkbox-group {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin: 30px 0 20px;
-    }
-
-    .checkbox-group input {
-      width: auto;
-      margin-top: 3px;
-    }
-
-    .checkbox-group label {
-      font-size: 0.95rem;
-      color: var(--text-light);
-    }
-
-    .checkbox-group a {
-      color: var(--primary);
-      text-decoration: underline;
-      font-weight: 500;
-    }
-
-    .btn-submit {
-      width: 100%;
-      padding: 18px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      color: white;
-      font-size: 1.2rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 70px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .btn-submit:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(124, 111, 255, 0.3);
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      color: var(--text-light);
-      font-size: 1.5rem;
-      cursor: pointer;
-      opacity: 0.6;
-      transition: 0.3s;
-    }
-
-    .modal-close:hover {
-      opacity: 1;
-      color: white;
-    }
+    .hero .animate { animation-delay: 0.3s; }
+    .benefits .animate { animation-delay: 0.5s; }
+    .bonuses .animate { animation-delay: 0.7s; }
+    .cta .animate { animation-delay: 0.9s; }
 
     /* Responsive */
     @media (max-width: 768px) {
-      header h1 { font-size: 3rem; }
-      .hero h2 { font-size: 2.5rem; }
-      .section-title { font-size: 2.3rem; }
-      .cta h2 { font-size: 2.5rem; }
-      .btn { font-size: 1.3rem; padding: 20px 44px; }
-      .bonus-item { flex-direction: column; align-items: flex-start; gap: 12px; }
-      .bonus-price { align-self: flex-end; }
+      header h1 { font-size: 2.5rem; }
+      .section-title { font-size: 2rem; }
+      .bonus-total {
+        font-size: 1.5rem;
+        padding: 20px;
+      }
+      .bonus-total strong {
+        font-size: 1.7rem;
+      }
+      .guarantee, .limit { font-size: 1rem; }
+      .highlight-box { padding: 24px; }
+      .highlight-box p { font-size: 1.1rem; }
+      .benefit-item { padding: 20px; }
+      .benefit-item p { font-size: 1.05rem; }
     }
   </style>
 </head>
@@ -744,54 +693,40 @@
   <section class="bonuses">
     <div class="container">
       <h2 class="section-title animate">Эксклюзивные бонусы — только для участников</h2>
-      <p class="bonus-total animate">Общая стоимость бонусов: <s>17 140 ₽</s> → <strong>всего за 8990 ₽!</strong></p>
 
       <div class="bonus-item animate">
-        <div>
-          <span class="bonus-title">«Готовая сцена: полный чек-лист выступления»</span>
-          <div>Подробное руководство по подготовке к любому выступлению: как убедиться, что всё идёт по плану.</div>
-        </div>
+        <span><strong>«Готовая сцена: полный чек-лист выступления»</strong><br>Подробное руководство по подготовке к любому выступлению: как убедиться, что всё идёт по плану.</span>
         <span class="bonus-price">2490 ₽</span>
       </div>
 
       <div class="bonus-item animate">
-        <div>
-          <span class="bonus-title">«Камера, мотор! Как записывать на камеру легко»</span>
-          <div>Настолько простой план, что сложнее не начать — чем начать.</div>
-        </div>
+        <span><strong>«Камера, мотор! Как записывать на камеру легко»</strong><br>Настолько простой план, что сложнее не начать — чем начать.</span>
         <span class="bonus-price">1590 ₽</span>
       </div>
 
       <div class="bonus-item animate">
-        <div>
-          <span class="bonus-title">«Формулировки мыслей» — веб-ресурс</span>
-          <div>Доступ к веб-ресурсу для повышения навыка чёткой и ясной передачи идей.</div>
-        </div>
+        <span><strong>«Формулировки мыслей» — веб-ресурс</strong><br>Доступ к веб-ресурсу для повышения навыка чёткой и ясной передачи идей.</span>
         <span class="bonus-price">2590 ₽</span>
       </div>
 
       <div class="bonus-item animate">
-        <div>
-          <span class="bonus-title">«Минутная практика» — упражнения в перерывах</span>
-          <div>Ресурс с минутными упражнениями для практики — разработан для тех, у кого очень мало времени.</div>
-        </div>
+        <span><strong>«Минутная практика» — упражнения в перерывах</strong><br>Ресурс с минутными упражнениями для практики — разработан для тех, у кого очень мало времени.</span>
         <span class="bonus-price">4590 ₽</span>
       </div>
 
       <div class="bonus-item animate">
-        <div>
-          <span class="bonus-title">«Как составить текст к выступлению?» — пошаговая схема</span>
-          <div>Простая инструкция, с которой справится даже ребёнок.</div>
-        </div>
+        <span><strong>«Как составить текст к выступлению?» — пошаговая схема</strong><br>Простая инструкция, с которой справится даже ребёнок.</span>
         <span class="bonus-price">2990 ₽</span>
       </div>
 
       <div class="bonus-item animate">
-        <div>
-          <span class="bonus-title">«Генератор тем» для ежедневной практики</span>
-          <div>Доступ к инструменту, который поможет не сидеть без идей — каждый день новая тема для тренировки.</div>
-        </div>
+        <span><strong>«Генератор тем» для ежедневной практики</strong><br>Доступ к инструменту, который поможет не сидеть без идей — каждый день новая тема для тренировки.</span>
         <span class="bonus-price">2490 ₽</span>
+      </div>
+
+      <!-- Перенесённая и стилизованная стоимость -->
+      <div class="bonus-total animate">
+        Общая стоимость бонусов: <s>17 140 ₽</s> → <strong>всего за 8990 ₽!</strong>
       </div>
     </div>
   </section>
@@ -907,7 +842,7 @@
       }
     };
 
-    // Обработка формы (заглушка — вы можете добавить отправку)
+    // Обработка формы
     document.getElementById('leadForm').addEventListener('submit', function(e) {
       e.preventDefault();
       alert('Спасибо! Данные отправлены. Доступ будет выслан в Telegram.');
